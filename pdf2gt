@@ -81,7 +81,7 @@ info "detected $type map"
 if [ $CLIP = 'true' ]; then
 	info "setting clipping region"
 	case $type in
-		USFS) srcwin="-srcwin 399 189 2463 3417";;  # at 150 DPI
+		USFS) srcwin="-srcwin 220 193 2831 3408";;  # at 150 DPI
 		USGS) srcwin="-srcwin 475 377 2463 3415";;  # at 150 DPI
 	esac
 fi
