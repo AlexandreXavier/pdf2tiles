@@ -48,5 +48,6 @@ for f in $*; do
 
 	pdf2gt "$infile"
 	gt2tiles "$outfile" "$outsubdir"
+  rm "$outfile"
 done
 

@@ -78,10 +78,12 @@ info "detected $type map"
 #
 # TODO make these values are DPI-independent
 
+LAT=$(gdalinfo "$infile" | grep "Lower Right" | sed 's/.*) (//g' | xargs -0 node dms2lat.js)
+
 if [ $CLIP = 'true' ]; then
 	info "setting clipping region"
 	case $type in
-		USFS) srcwin="-srcwin 220 193 2831 3408";;  # at 150 DPI
+		USFS) srcwin=$(node srcwin.js $LAT);;  # at 150 DPI
 		USGS) srcwin="-srcwin 475 377 2463 3415";;  # at 150 DPI
 	esac
 fi
